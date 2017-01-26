@@ -72,8 +72,8 @@ open class ExpandingMenuButton: UIView, UIGestureRecognizerDelegate {
     
     open var titleTappedActionEnabled: Bool = true
     
-    open var expandingDirection: ExpandingDirection = ExpandingDirection.top
-    open var menuTitleDirection: MenuTitleDirection = MenuTitleDirection.left
+    open var expandingDirection: ExpandingDirection = ExpandingDirection.bottom
+    open var menuTitleDirection: MenuTitleDirection = MenuTitleDirection.right
     
     open var enabledExpandingAnimations: AnimationOptions = .Default
     open var enabledFoldingAnimations: AnimationOptions = .Default
