@@ -124,6 +124,7 @@ open class ExpandingMenuButton: UIView, UIGestureRecognizerDelegate {
             self.centerButton.setImage(self.centerHighlightedImage, for: UIControlState.highlighted)
             self.centerButton.addTarget(self, action: #selector(centerButtonTapped), for: UIControlEvents.touchDown)
             self.centerButton.center = CGPoint(x: self.frame.width / 2.0, y: self.frame.height / 2.0)
+            self.centerButton.transform = CGAffineTransform.init(rotationAngle:CGFloat(-M_PI*0.25))
             self.addSubview(self.centerButton)
             
             // Configure bottom view
@@ -313,10 +314,10 @@ open class ExpandingMenuButton: UIView, UIGestureRecognizerDelegate {
     fileprivate func resizeToFoldedFrame(completion: (() -> Void)?) {
         if self.enabledFoldingAnimations.contains(.MenuButtonRotation) == true {
             UIView.animate(withDuration: 0.0618 * 3, delay: 0.0618 * 2, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
-                self.centerButton.transform = CGAffineTransform(rotationAngle: 0.0)
+                self.centerButton.transform = CGAffineTransform(rotationAngle:CGFloat(-M_PI*0.25))
                 }, completion: nil)
         } else {
-            self.centerButton.transform = CGAffineTransform(rotationAngle: 0.0)
+            self.centerButton.transform = CGAffineTransform(rotationAngle:CGFloat(-M_PI*0.25))
         }
         
         UIView.animate(withDuration: 0.15, delay: 0.35, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
